@@ -1,0 +1,34 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="mt-24 border-t border-white/10 bg-deep-teal">
+  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-3">
+    <div>
+      <p class="text-2xl font-bold tracking-tight text-electric-yellow neon">
+        ANTELOPE <span class="text-antelope-red">LANES</span>
+      </p>
+      <p class="mt-2 text-sm text-white/70">Let the good times roll.</p>
+    </div>
+    <div class="text-sm">
+      <p class="font-semibold text-neon-cyan">Visit</p>
+      <p class="mt-2 text-white/80">6301 E. 2nd St.<br/>Prescott Valley, AZ 86314</p>
+      <p class="mt-2 text-white/80">
+        <a href="tel:9287727501" class="hover:text-neon-cyan">928-772-7501</a><br/>
+        <a href="mailto:antelopelanesbowling@gmail.com" class="hover:text-neon-cyan">antelopelanesbowling@gmail.com</a>
+      </p>
+    </div>
+    <div class="text-sm">
+      <p class="font-semibold text-neon-cyan">Quick links</p>
+      <ul class="mt-2 space-y-1 text-white/80">
+        <li><a href={`${base}/parties`} class="hover:text-neon-cyan">Plan a Party</a></li>
+        <li><a href={`${base}/bowling`} class="hover:text-neon-cyan">Leagues</a></li>
+        <li><a href={`${base}/schedule`} class="hover:text-neon-cyan">Hours &amp; Specials</a></li>
+        <li><a href={`${base}/contact`} class="hover:text-neon-cyan">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 px-4 py-4 text-center text-xs text-white/50">
+    © {new Date().getFullYear()} Antelope Lanes. Site by TPF V2 AI Agency.
+  </div>
+</footer>

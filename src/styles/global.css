@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Antelope Lanes — neon/glow bowling-night design tokens.
+   These mirror the brief's V2 logo palette. The design phase will refine; this is the starting baseline so the build has a working dark/neon shell out of the gate. */
+@theme {
+  /* Brand core (V2 logo) */
+  --color-deep-teal: #0a2733;       /* dominant bg */
+  --color-antelope-red: #e71118;    /* primary accent */
+  --color-hot-orange: #ff6b35;      /* flame mid */
+  --color-electric-yellow: #ffcc00; /* flame tip */
+  --color-cyan-teal: #3fc0cc;       /* antelope body */
+
+  /* Neon accents (validate in design phase) */
+  --color-neon-magenta: #ff2a6d;
+  --color-neon-cyan: #05d9e8;
+  --color-neon-violet: #7d3cff;
+
+  /* Foundation darks */
+  --color-near-black: #0a0a0e;
+  --color-dark-slate: #1a1f2e;
+
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+html {
+  background-color: var(--color-near-black);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* Reusable neon glow text effect — apply with class="neon" */
+.neon {
+  text-shadow:
+    0 0 4px currentColor,
+    0 0 12px currentColor,
+    0 0 24px currentColor;
+}
+
+/* Reusable neon button border glow */
+.neon-border {
+  box-shadow:
+    0 0 6px currentColor,
+    0 0 18px currentColor,
+    inset 0 0 6px color-mix(in srgb, currentColor 40%, transparent);
+}

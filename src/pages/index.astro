@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Antelope Lanes — Bowling, Parties & Rythmz Lounge in Prescott Valley">
+  <!-- HERO -->
+  <section class="relative isolate overflow-hidden bg-deep-teal px-4 py-24 md:py-36">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(231,17,24,0.18),transparent_60%)]"></div>
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-neon-cyan neon">Prescott Valley · 24 lanes</p>
+      <h1 class="mt-6 text-5xl font-black uppercase tracking-tight text-white md:text-7xl">
+        Let the<br/>
+        <span class="text-electric-yellow neon">good times</span>
+        <span class="text-antelope-red neon">roll.</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-white/80">
+        Bowling, parties, arcade, deli, and Rythmz Lounge — the spot for a night out in Prescott Valley.
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href={`${base}/parties`} class="rounded-full bg-antelope-red px-8 py-4 font-bold text-white text-antelope-red neon-border transition hover:scale-105">
+          Plan a Party
+        </a>
+        <a href="tel:9287727501" class="rounded-full border-2 border-neon-cyan px-8 py-4 font-bold text-neon-cyan neon-border transition hover:bg-neon-cyan/10">
+          Book a Lane
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERINGS -->
+  <section class="mx-auto max-w-7xl px-4 py-20">
+    <h2 class="text-center text-4xl font-black uppercase tracking-tight">
+      More than <span class="text-neon-magenta neon">just bowling.</span>
+    </h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {[
+        { title: "Bowling", body: "24 full-size lanes. Open play, leagues, juniors, GLOW cosmic nights.", href: `${base}/bowling`, color: "text-neon-cyan" },
+        { title: "Rythmz Lounge", body: "Bar, OTB, karaoke Friday, two billiards tables.", href: `${base}/rythmz-lounge`, color: "text-neon-magenta" },
+        { title: "Arcade", body: "Games for every age — plus pool tables.", href: `${base}/arcade`, color: "text-electric-yellow" },
+        { title: "Deli & Food", body: "Real food, not just bowling-alley snacks.", href: `${base}/food`, color: "text-hot-orange" },
+        { title: "Parties", body: "Birthdays, school groups, corporate. We do it all.", href: `${base}/parties`, color: "text-antelope-red" },
+        { title: "Specials & Hours", body: "Cosmic nights, weekly specials, league schedule.", href: `${base}/schedule`, color: "text-neon-violet" },
+      ].map((c) => (
+        <a href={c.href} class:list={["group rounded-2xl border border-white/10 bg-dark-slate p-6 transition hover:border-current hover:scale-[1.02]", c.color]}>
+          <h3 class="text-2xl font-bold uppercase tracking-tight neon">{c.title}</h3>
+          <p class="mt-3 text-sm text-white/70">{c.body}</p>
+          <p class="mt-4 text-xs uppercase tracking-widest text-white/50 group-hover:text-current">Explore →</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  accent?: string;
+  body?: string;
+}
+const { eyebrow, title, accent = "text-neon-cyan", body } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-deep-teal px-4 py-20 md:py-28">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(5,217,232,0.12),transparent_60%)]"></div>
+  <div class="mx-auto max-w-4xl text-center">
+    {eyebrow && <p class="text-sm font-semibold uppercase tracking-[0.3em] neon" class:list={[accent]}>{eyebrow}</p>}
+    <h1 class="mt-4 text-4xl font-black uppercase tracking-tight text-white md:text-6xl">
+      <span class="neon" class:list={[accent]}>{title}</span>
+    </h1>
+    {body && <p class="mx-auto mt-6 max-w-2xl text-lg text-white/80">{body}</p>}
+    <slot />
+  </div>
+</section>

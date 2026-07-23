@@ -1,16 +1,177 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
+
+const specials = [
+  { name: "Ham & Cheese Sliders with Fries", price: "$8" },
+  { name: "Crispy Buffalo Chicken Sliders with Fries", price: "$8" },
+  { name: "Chicken Bacon Ranch Flatbread", price: "$12" },
+  { name: "Chicken Bacon Ranch — Buffalo or BBQ", price: "$12" },
+];
+
+const sections = [
+  {
+    title: "Starters",
+    color: "text-electric-yellow",
+    note: "Add fries +$3 · Add tots +$3.50",
+    items: [
+      { name: "Large Seasoned Fries", price: "$5", desc: "Served with ketchup" },
+      { name: "Chili Cheese Fries", price: "$7", desc: "Chili, nacho cheese, shredded cheese, sour cream & jalapenos" },
+      { name: "Loaded Fries", price: "$7", desc: "Bacon, nacho cheese, shredded cheese & sour cream" },
+      { name: "Seasoned Tots", price: "$6", desc: "Served with ketchup" },
+      { name: "Mozzarella Stix", price: "$7", desc: "Served with marinara" },
+      { name: "Onion Rings", price: "$7.50", desc: "Served with ranch" },
+      { name: "Mini Corn Dogs", price: "$7", desc: "Served with ketchup & mustard" },
+      { name: "Nachos", price: "$6.50", desc: "Loaded with nacho cheese, side of jalapenos" },
+      { name: "Chicken Quesadilla", price: "$7.50", desc: "Served with sour cream & salsa" },
+      { name: "Cheese Crisp", price: "$6", desc: "Served with sour cream or salsa" },
+      { name: "Crispy Chicken Tenders", price: "$8", desc: "Served with one sauce" },
+      { name: "Pretzels", price: "$6", desc: "Plain, salted" },
+      { name: "Italian Salad", price: "$9", desc: "Lettuce, tomato, green peppers, onions, black olives, pepperoni, ham, cheese, Italian dressing" },
+    ],
+  },
+  {
+    title: "Wings",
+    color: "text-antelope-red",
+    note: "Sauces: Buffalo, BBQ",
+    items: [
+      { name: "Original Hot Wings", price: "$15" },
+      { name: "Boneless Buffalo", price: "$9" },
+    ],
+  },
+  {
+    title: "Light Bites",
+    color: "text-neon-cyan",
+    note: "Sauces: Ranch, BBQ, Buffalo, Honey Mustard",
+    items: [
+      { name: "Grilled Chicken Salad", price: "$9", desc: "Cheese, tomato, onion, black olives & green peppers" },
+      { name: "Crispy Chicken Salad", price: "$9", desc: "Cheese, tomato, onion, black olives & green peppers" },
+      { name: "Grilled Chicken Wrap", price: "$9", desc: "Lettuce, cheese, tomato — served with celery" },
+      { name: "Crispy Chicken Wrap", price: "$9", desc: "Lettuce, cheese, tomato — served with celery" },
+    ],
+  },
+  {
+    title: "Burgers & Dogs",
+    color: "text-hot-orange",
+    note: "Served with fries",
+    items: [
+      { name: "Hot Dog", price: "$7", desc: "All beef with ketchup, mustard, onion & relish" },
+      { name: "Chili Dog", price: "$8", desc: "Chili, nacho cheese, shredded cheese & onions" },
+      { name: "Hamburger", price: "$10", desc: "Mayo, ketchup, mustard, lettuce, tomato, pickle & onion" },
+      { name: "Cheeseburger", price: "$11", desc: "American cheese, mayo, ketchup, mustard, lettuce, tomato, pickle & onion" },
+    ],
+  },
+  {
+    title: "Pizza",
+    color: "text-neon-magenta",
+    note: "Extra toppings $1.25 each: pepperoni, sausage, ham, onion, bacon, jalapeno, black olives",
+    items: [
+      { name: "Personal Cheese", price: "$8" },
+      { name: "Large Cheese", price: "$15" },
+      { name: "Supreme Pizza", price: "$18", desc: "Sausage, pepperoni, black olives, green pepper & onion" },
+    ],
+  },
+  {
+    title: "Sandwiches",
+    color: "text-cyan-teal",
+    note: "Served with fries",
+    items: [
+      { name: "Your Choice", price: "$12", desc: "Chicken, turkey or ham with lettuce, tomato & mayo" },
+      { name: "The Best Club", price: "$14", desc: "Bacon, lettuce, tomato, turkey, ham, American cheese & mayo" },
+      { name: "Grilled Cheese", price: "$6" },
+      { name: "Yummy BLT", price: "$9", desc: "A generous amount of bacon, lettuce, tomato & mayo" },
+    ],
+  },
+  {
+    title: "Kids Menu",
+    color: "text-electric-yellow",
+    note: "Ages 12 and under · Drinks not included",
+    items: [
+      { name: "Mac & Cheese", price: "$6", desc: "With apple sauce" },
+      { name: "2 Chicken Tenders", price: "$6", desc: "Choice of fries or apple sauce" },
+      { name: "Hot Dog", price: "$6", desc: "Choice of fries or apple sauce" },
+    ],
+  },
+  {
+    title: "Add-Ons",
+    color: "text-neon-violet",
+    items: [
+      { name: "Chili", price: "$1" },
+      { name: "Bacon", price: "$1.50" },
+      { name: "Extra Sauces", price: "+$0.50", desc: "Ranch, BBQ, Honey Mustard, Buffalo" },
+      { name: "Nacho Cheese", price: "+$1" },
+    ],
+  },
+  {
+    title: "Desserts",
+    color: "text-neon-magenta",
+    items: [
+      { name: "Milkshake", price: "$5", desc: "Chocolate or vanilla" },
+      { name: "Ice Cream Sandwich", price: "$3" },
+    ],
+  },
+  {
+    title: "Beverages",
+    color: "text-neon-cyan",
+    note: "Pepsi, Diet Pepsi, Cherry Pepsi, Mtn Dew, Raspberry Tea, Pink Lemonade, Fruit Punch, Starry, Dr Pepper, Diet Dr Pepper, Root Beer",
+    items: [
+      { name: "Small", price: "$3" },
+      { name: "Medium", price: "$3.50" },
+      { name: "Large", price: "$4" },
+      { name: "Coffee", price: "$2" },
+      { name: "Water Bottle", price: "$2" },
+    ],
+  },
+];
 ---
 
-<Layout title="Food & Deli — Antelope Lanes">
+<Layout title="Food & Deli Menu — Antelope Lanes" description="The full Antelope Lanes deli menu — starters, wings, burgers, pizza, sandwiches, kids meals and more in Prescott Valley.">
   <PageHero
     eyebrow="Deli · Snacks · Drinks"
     title="Food"
     accent="text-hot-orange"
-    body="Real food, not just bowling-alley fare."
+    body="Real food, not just bowling-alley fare. Order at the counter, we bring it to your lane."
   />
-  <section class="mx-auto max-w-5xl px-4 py-16 text-white/70">
-    <p class="text-center">Full menu lands in design/build phase — pending menu source from client (PDF or in-house transcription).</p>
+
+  <!-- SPECIALS -->
+  <section class="mx-auto max-w-5xl px-4 pt-16">
+    <div class="rounded-2xl border border-antelope-red/40 bg-dark-slate p-6 md:p-8">
+      <h2 class="text-2xl font-black uppercase tracking-tight text-antelope-red neon">Current Specials</h2>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+        {specials.map((s) => (
+          <li class="flex items-baseline justify-between gap-4 rounded-xl bg-near-black/60 px-4 py-3">
+            <span class="font-semibold text-white">{s.name}</span>
+            <span class="shrink-0 font-bold text-electric-yellow">{s.price}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FULL MENU -->
+  <section class="mx-auto max-w-5xl px-4 py-16">
+    <div class="grid gap-6 md:grid-cols-2">
+      {sections.map((sec) => (
+        <div class="rounded-2xl border border-white/10 bg-dark-slate p-6">
+          <h2 class:list={["text-2xl font-black uppercase tracking-tight neon", sec.color]}>{sec.title}</h2>
+          {sec.note && <p class="mt-1 text-xs uppercase tracking-widest text-white/50">{sec.note}</p>}
+          <ul class="mt-4 space-y-3">
+            {sec.items.map((item) => (
+              <li>
+                <div class="flex items-baseline justify-between gap-3">
+                  <span class="font-semibold text-white">{item.name}</span>
+                  <span class="h-px flex-1 self-center bg-white/10"></span>
+                  <span class:list={["shrink-0 font-bold", sec.color]}>{item.price}</span>
+                </div>
+                {item.desc && <p class="mt-0.5 text-sm text-white/60">{item.desc}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <p class="mt-10 text-center text-xs text-white/40">
+      Consuming raw or undercooked meat, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness.
+    </p>
   </section>
 </Layout>

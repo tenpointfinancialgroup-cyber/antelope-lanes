@@ -25,3 +25,14 @@ pnpm-debug.log*
 .idea/
 *.swp
 *.swo
+
+# Agency-internal workspace docs — keep out of the public staging repo
+CLAUDE.md
+CONTEXT.md
+REFERENCES.md
+"a. skills"/
+"b. references"/
+"c. output"/
+a. skills/
+b. references/
+c. output/

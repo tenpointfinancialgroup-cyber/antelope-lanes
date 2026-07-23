@@ -95,6 +95,75 @@
   .d3 .btn-b { border-color:#2de2ff; color:#2de2ff; box-shadow:0 0 16px #2de2ff77, inset 0 0 10px #2de2ff33; }
   .d3 .card { border:1px solid rgba(255,42,160,.35); box-shadow:0 0 14px rgba(255,42,160,.15); }
   .d3 .c1 h3{color:#2de2ff} .d3 .c2 h3{color:#ff2aa0} .d3 .c3 h3{color:#9d6bff}
+
+  /* ---------- DRAFT 4 : MIRRORBALL ----------
+     Palette source: disco-ball alley photo — mirror ball overhead, magenta + cyan neon,
+     purple lane glow, warm pin-glow amber. Signature: CSS mirror ball + light cone + lane floor. */
+  .d4 { background:#0d0618; }
+  .d4 .nebula { position:absolute; inset:0; background:
+      radial-gradient(38rem 22rem at 50% 0%, rgba(255,42,160,.14), transparent 60%),
+      radial-gradient(30rem 20rem at 12% 65%, rgba(45,226,255,.10), transparent 60%),
+      radial-gradient(30rem 20rem at 88% 65%, rgba(157,107,255,.12), transparent 60%); }
+  .d4 .ball-rig { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; height:0; }
+  .d4 .cable { flex:none; width:1px; height:52px; background:linear-gradient(180deg, transparent, rgba(255,255,255,.35)); }
+  .d4 .ball { flex:none; width:92px; height:92px; border-radius:50%;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,.85), transparent 42%),
+        repeating-linear-gradient(0deg, rgba(45,226,255,.85) 0 5px, rgba(255,42,160,.8) 5px 10px, rgba(157,107,255,.85) 10px 15px),
+        repeating-linear-gradient(90deg, rgba(13,6,24,.7) 0 2px, transparent 2px 7px);
+      background-blend-mode:normal, normal, multiply;
+      box-shadow:0 0 22px rgba(45,226,255,.45), 0 0 48px rgba(255,42,160,.35);
+      animation:ballshimmer 7s linear infinite; }
+  @keyframes ballshimmer { from{background-position:0 0,0 0,0 0} to{background-position:0 0,0 42px,27px 0} }
+  @media (prefers-reduced-motion: reduce){ .d4 .ball{animation:none} }
+  .d4 .cone { position:absolute; top:142px; left:50%; width:44rem; max-width:90vw; height:30rem;
+      transform:translateX(-50%); pointer-events:none;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), transparent 75%);
+      clip-path:polygon(46% 0, 54% 0, 100% 100%, 0 100%); }
+  .d4 .floor { position:absolute; bottom:0; left:0; right:0; height:26%; pointer-events:none;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 72px),
+        linear-gradient(180deg, transparent, rgba(157,107,255,.16)); }
+  .d4 .hero { padding-top:8.5rem; }
+  .d4 .kicker { color:#ffb054; }
+  .d4 h1 { font-style:italic; letter-spacing:-.02em; }
+  .d4 h1 .hi { color:#ff2aa0; text-shadow:0 0 8px #ff2aa0, 0 0 26px #ff2aa0aa, 0 0 60px #ff2aa066; }
+  .d4 h1 .hi2 { color:#2de2ff; text-shadow:0 0 8px #2de2ff, 0 0 26px #2de2ffaa; }
+  .d4 .btn-a { background:#ff2aa0; color:#fff; box-shadow:0 0 20px #ff2aa088; }
+  .d4 .btn-b { border-color:#2de2ff; color:#2de2ff; box-shadow:0 0 14px #2de2ff55; }
+  .d4 .card { border:1px solid rgba(157,107,255,.30); background:rgba(157,107,255,.06); }
+  .d4 .card:hover { border-color:rgba(255,176,84,.5); }
+  .d4 .c1 h3{color:#2de2ff} .d4 .c2 h3{color:#ff2aa0} .d4 .c3 h3{color:#ffb054}
+
+  /* ---------- DRAFT 5 : STRIKE BEAM ----------
+     Palette source: lane-beam ball photo — symmetric periwinkle/orchid beams, ice-cyan
+     highlights, glossy reflective floor. Signature: rising beams + mirrored headline reflection. */
+  .d5 { background:#070420; }
+  .d5 .nebula { position:absolute; inset:0; background:
+      radial-gradient(44rem 26rem at 50% 30%, rgba(91,108,255,.16), transparent 65%),
+      radial-gradient(30rem 30rem at 50% 100%, rgba(85,224,255,.10), transparent 70%); }
+  .d5 .beams { position:absolute; inset:0; pointer-events:none; filter:blur(7px); background:
+      linear-gradient(180deg, rgba(85,224,255,.45), transparent 72%) 15% 0/6px 100% no-repeat,
+      linear-gradient(180deg, rgba(91,108,255,.55), transparent 78%) 32% 0/9px 100% no-repeat,
+      linear-gradient(180deg, rgba(200,107,255,.55), transparent 85%) 50% 0/14px 100% no-repeat,
+      linear-gradient(180deg, rgba(91,108,255,.55), transparent 78%) 68% 0/9px 100% no-repeat,
+      linear-gradient(180deg, rgba(85,224,255,.45), transparent 72%) 85% 0/6px 100% no-repeat; }
+  .d5 .beams-sharp { position:absolute; inset:0; pointer-events:none; opacity:.8; background:
+      linear-gradient(180deg, #55e0ff, transparent 70%) 15% 0/1px 100% no-repeat,
+      linear-gradient(180deg, #5b6cff, transparent 76%) 32% 0/2px 100% no-repeat,
+      linear-gradient(180deg, #c86bff, transparent 82%) 50% 0/2px 100% no-repeat,
+      linear-gradient(180deg, #5b6cff, transparent 76%) 68% 0/2px 100% no-repeat,
+      linear-gradient(180deg, #55e0ff, transparent 70%) 85% 0/1px 100% no-repeat; }
+  .d5 .kicker { color:#a8b4ff; letter-spacing:.5em; }
+  .d5 h1 { letter-spacing:.04em;
+      -webkit-box-reflect:below 6px linear-gradient(transparent 55%, rgba(0,0,0,.3)); }
+  .d5 h1 .hi { background:linear-gradient(90deg,#5b6cff,#c86bff 55%,#55e0ff); -webkit-background-clip:text;
+               background-clip:text; color:transparent; filter:drop-shadow(0 0 16px #5b6cff88); }
+  .d5 .btn-a { background:#5b6cff; color:#fff; box-shadow:0 0 20px #5b6cff88; }
+  .d5 .btn-b { border-color:#c86bff; color:#c86bff; box-shadow:0 0 14px #c86bff55; }
+  .d5 .card { border:1px solid transparent; background:rgba(91,108,255,.07);
+      border-top:2px solid; border-image:linear-gradient(90deg,#55e0ff,#c86bff) 1; }
+  .d5 .c1 h3{color:#55e0ff} .d5 .c2 h3{color:#c86bff} .d5 .c3 h3{color:#a8b4ff}
 </style>
 </head>
 <body>
@@ -146,6 +215,47 @@
   <div class="hero">
     <div class="kicker glow">PRESCOTT VALLEY · 24 LANES</div>
     <h1>LET THE<br><span class="hi">GOOD TIMES</span> <span class="hi2">ROLL.</span></h1>
+    <p class="sub">Bowling, parties, arcade, deli, and Rythmz Lounge — the spot for a night out in Prescott Valley.</p>
+    <div class="ctas"><span class="btn btn-a">Plan a Party</span><span class="btn btn-b">Book a Lane</span></div>
+  </div>
+  <div class="cards">
+    <div class="card c1"><h3 class="glow">BOWLING</h3><p>24 full-size lanes. Open play, leagues, GLOW cosmic nights.</p></div>
+    <div class="card c2"><h3 class="glow">RYTHMZ LOUNGE</h3><p>Bar, OTB, karaoke Friday, two billiards tables.</p></div>
+    <div class="card c3"><h3 class="glow">ARCADE</h3><p>Games for every age — plus pool tables.</p></div>
+  </div>
+</section>
+
+<!-- ============ DRAFT 4 ============ -->
+<section class="draft d4">
+  <div class="stars"></div><div class="stars2"></div><div class="nebula"></div>
+  <div class="cone"></div><div class="floor"></div>
+  <span class="tag">DRAFT 4 · MIRRORBALL</span>
+  <nav class="nav"><span class="logo"><span class="a">ANTELOPE</span> <span class="l">LANES</span></span>
+    <span class="links"><span>Bowling</span><span>Parties</span><span>Rythmz Lounge</span><span>Arcade</span><span>Pricing</span></span></nav>
+  <div class="ball-rig"><div class="cable"></div><div class="ball"></div></div>
+  <div class="hero">
+    <div class="kicker glow">PRESCOTT VALLEY · 24 LANES</div>
+    <h1>LET THE<br><span class="hi">GOOD TIMES</span> <span class="hi2">ROLL.</span></h1>
+    <p class="sub">Bowling, parties, arcade, deli, and Rythmz Lounge — the spot for a night out in Prescott Valley.</p>
+    <div class="ctas"><span class="btn btn-a">Plan a Party</span><span class="btn btn-b">Book a Lane</span></div>
+  </div>
+  <div class="cards">
+    <div class="card c1"><h3 class="glow">BOWLING</h3><p>24 full-size lanes. Open play, leagues, GLOW cosmic nights.</p></div>
+    <div class="card c2"><h3 class="glow">RYTHMZ LOUNGE</h3><p>Bar, OTB, karaoke Friday, two billiards tables.</p></div>
+    <div class="card c3"><h3 class="glow">ARCADE</h3><p>Games for every age — plus pool tables.</p></div>
+  </div>
+</section>
+
+<!-- ============ DRAFT 5 ============ -->
+<section class="draft d5">
+  <div class="stars"></div><div class="stars2"></div><div class="nebula"></div>
+  <div class="beams"></div><div class="beams-sharp"></div>
+  <span class="tag">DRAFT 5 · STRIKE BEAM</span>
+  <nav class="nav"><span class="logo"><span class="a">ANTELOPE</span> <span class="l">LANES</span></span>
+    <span class="links"><span>Bowling</span><span>Parties</span><span>Rythmz Lounge</span><span>Arcade</span><span>Pricing</span></span></nav>
+  <div class="hero">
+    <div class="kicker glow">PRESCOTT VALLEY · 24 LANES</div>
+    <h1>LET THE<br><span class="hi">GOOD TIMES</span> ROLL.</h1>
     <p class="sub">Bowling, parties, arcade, deli, and Rythmz Lounge — the spot for a night out in Prescott Valley.</p>
     <div class="ctas"><span class="btn btn-a">Plan a Party</span><span class="btn btn-b">Book a Lane</span></div>
   </div>

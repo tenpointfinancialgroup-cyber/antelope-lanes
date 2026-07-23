@@ -52,6 +52,24 @@
   .card p { font-size:.85rem; color:#94a3b8; line-height:1.5; }
   .glow { text-shadow:0 0 6px currentColor, 0 0 18px currentColor; }
 
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 640px) {
+    .nav { flex-direction:column; gap:.9rem; padding:2.6rem 1.25rem 0; }
+    .links { flex-wrap:wrap; justify-content:center; gap:.7rem 1.1rem; font-size:.8rem; }
+    .hero { padding:3.5rem 1.25rem 3rem; }
+    .kicker { letter-spacing:.22em; font-size:.7rem; }
+    .sub { font-size:.95rem; }
+    .btn { padding:.75rem 1.5rem; font-size:.9rem; }
+    .cards { padding:0 1.25rem; }
+    .tag { top:10px; left:10px; font-size:10px; }
+    .d4 .hero { padding-top:7.5rem; }
+    .d4 .cable { height:36px; }
+    .d4 .ball { width:72px; height:72px; }
+    .d4 .cone { top:118px; }
+    .d5 .kicker { letter-spacing:.32em; }
+    .d5 .beams { background-size:4px 100%, 6px 100%, 10px 100%, 6px 100%, 4px 100%; }
+  }
+
   /* ---------- DRAFT 1 : MIDNIGHT MINIMAL ---------- */
   .d1 { background:#030307; }
   .d1 .nebula { position:absolute; inset:0;
@@ -155,6 +173,7 @@
       linear-gradient(180deg, #5b6cff, transparent 76%) 68% 0/2px 100% no-repeat,
       linear-gradient(180deg, #55e0ff, transparent 70%) 85% 0/1px 100% no-repeat; }
   .d5 .kicker { color:#a8b4ff; letter-spacing:.5em; }
+  .d5 .sub { margin-top:3.4rem; }
   .d5 h1 { letter-spacing:.04em;
       -webkit-box-reflect:below 6px linear-gradient(transparent 55%, rgba(0,0,0,.3)); }
   .d5 h1 .hi { background:linear-gradient(90deg,#5b6cff,#c86bff 55%,#55e0ff); -webkit-background-clip:text;
